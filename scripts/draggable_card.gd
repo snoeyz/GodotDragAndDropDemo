@@ -35,5 +35,6 @@ func toggle_flip(show_face: bool) -> void:
 
 func update_card_value() -> void:
 	var card_rank_value: String = ["A", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"][card_rank]
-	var card_suit_value: String = ["♥", "♠", "♦", "♣"][card_suit]
+	var card_suit_value: String = ["♥", "♦", "♠", "♣"][card_suit]
 	value_label.text = "%s%s" % [card_rank_value, card_suit_value]
+	value_label.modulate = Color.RED if card_suit < 2 else Color.BLACK
