@@ -22,7 +22,7 @@ var dragged_from_pos: Vector2
 		update_card_value()
 
 @onready var texture_rect: TextureRect = $TextureRect
-@onready var card_face: ColorRect = $CardFace
+@onready var card_face: Panel = $CardFace
 @onready var value_label: Label = $CardFace/ValueLabel
 
 func get_preview() -> Control:
@@ -61,6 +61,9 @@ func _on_button_button_up() -> void:
 func revert_pos() -> void:
 	move_to_pos(dragged_from_pos)
 
+func tween_pos_done() -> void:
+	z_index -= 1
+
 func can_move_to_slot(slot: ButtonDroppableSlot) -> bool:
 	match slot.slot_type:
 		ButtonDroppableSlot.ButtonCardSlotType.DECK:
@@ -72,9 +75,11 @@ func can_move_to_slot(slot: ButtonDroppableSlot) -> bool:
 	return false
 
 func move_to_pos(pos: Vector2) -> void:
+	z_index += 1
 	var tween: Tween = get_tree().create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(self, "global_position", pos, TWEEN_TIME)
+	tween.tween_callback(tween_pos_done)
 
 func move_to_slot(slot: ButtonDroppableSlot) -> void:
 	var old_pos: Vector2 = global_position

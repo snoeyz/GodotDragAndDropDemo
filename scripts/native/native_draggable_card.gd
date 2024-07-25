@@ -16,7 +16,7 @@ enum NativeCardSuit { HEART, SPADE, DIAMOND, CLUB }
 		update_card_value()
 
 @onready var texture_rect: TextureRect = $TextureRect
-@onready var card_face: ColorRect = $CardFace
+@onready var card_face: Panel = $CardFace
 @onready var value_label: Label = $CardFace/ValueLabel
 
 func get_preview() -> Control:

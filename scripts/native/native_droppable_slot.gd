@@ -25,6 +25,5 @@ func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	var card: NativeDraggableCard = data as NativeDraggableCard
 	card.dragged_away.emit(card)
-	#(card.get_parent() as NativeDroppableSlot).dragged_away(card)
 	card.card_source = slot_type
 	add_card(card)
