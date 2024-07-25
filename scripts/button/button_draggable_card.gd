@@ -84,5 +84,3 @@ func move_to_slot(slot: ButtonDroppableSlot) -> void:
 	slot.add_card(self)
 	set_deferred("global_position", old_pos)
 	call_deferred("move_to_pos", slot.global_position)
-	print_debug(old_pos)
-	#move_to_pos(slot.global_position)
