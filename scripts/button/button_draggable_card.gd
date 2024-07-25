@@ -2,6 +2,8 @@ class_name ButtonDraggableCard extends Control
 
 signal dragged_away(card: ButtonDraggableCard)
 
+const TWEEN_TIME = 0.25
+
 enum ButtonCardRank { ACE, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING }
 enum ButtonCardSuit { HEART, SPADE, DIAMOND, CLUB }
 
@@ -57,7 +59,7 @@ func _on_button_button_up() -> void:
 	is_being_dragged = false
 
 func revert_pos() -> void:
-	global_position = dragged_from_pos
+	move_to_pos(dragged_from_pos)
 
 func can_move_to_slot(slot: ButtonDroppableSlot) -> bool:
 	match slot.slot_type:
@@ -69,9 +71,18 @@ func can_move_to_slot(slot: ButtonDroppableSlot) -> bool:
 			return card_source == ButtonDroppableSlot.ButtonCardSlotType.HAND
 	return false
 
+func move_to_pos(pos: Vector2) -> void:
+	var tween: Tween = get_tree().create_tween()
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(self, "global_position", pos, TWEEN_TIME)
+
 func move_to_slot(slot: ButtonDroppableSlot) -> void:
+	var old_pos: Vector2 = global_position
 	dragged_away.emit(self)
-	global_position = slot.global_position
 	card_source = slot.slot_type
 	toggle_flip(slot.slot_type != ButtonDroppableSlot.ButtonCardSlotType.DECK)
 	slot.add_card(self)
+	set_deferred("global_position", old_pos)
+	call_deferred("move_to_pos", slot.global_position)
+	print_debug(old_pos)
+	#move_to_pos(slot.global_position)

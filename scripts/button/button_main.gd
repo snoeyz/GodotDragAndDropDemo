@@ -19,9 +19,11 @@ func _on_card_dropped(card: ButtonDraggableCard) -> void:
 	var slot: ButtonDroppableSlot = get_slot_at_pos(get_global_mouse_position())
 	if slot:
 		if not card.can_move_to_slot(slot):
-			return card.revert_pos()
-		card.move_to_slot(slot)
-	card.revert_pos()
+			card.revert_pos()
+		else:
+			card.move_to_slot(slot)
+	else:
+		card.revert_pos()
 
 func get_slot_at_pos(pos: Vector2) -> ButtonDroppableSlot:
 	for slot in slot_list:
