@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://k27ud0jdkyg1"]
+
+[ext_resource type="Script" path="res://scripts/native/native_draggable_card.gd" id="1_eps7u"]
+[ext_resource type="Texture2D" uid="uid://daqc64xx7nc2d" path="res://icon.svg" id="2_w6db3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1p3j5"]
+font_size = 32
+
+[node name="DraggableCard" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 128.0
+offset_bottom = 128.0
+script = ExtResource("1_eps7u")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("2_w6db3")
+
+[node name="CardFace" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+mouse_filter = 1
+color = Color(0.211765, 0.239216, 0.321569, 1)
+
+[node name="ValueLabel" type="Label" parent="CardFace"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "AC"
+label_settings = SubResource("LabelSettings_1p3j5")
+horizontal_alignment = 1

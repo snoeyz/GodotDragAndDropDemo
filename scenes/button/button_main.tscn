@@ -1,0 +1,106 @@
+[gd_scene load_steps=4 format=3 uid="uid://byknw8e636luk"]
+
+[ext_resource type="Script" path="res://scripts/button/button_main.gd" id="1_xvuki"]
+[ext_resource type="Script" path="res://scripts/button/button_droppable_slot.gd" id="2_q51im"]
+[ext_resource type="Script" path="res://scripts/button/button_draw_slot.gd" id="3_yrjlt"]
+
+[node name="ButtonMain" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xvuki")
+
+[node name="Hand" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -362.0
+offset_top = -100.0
+offset_right = 362.0
+grow_horizontal = 2
+grow_vertical = 0
+columns = 7
+
+[node name="Card1" type="PanelContainer" parent="Hand"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+script = ExtResource("2_q51im")
+slot_type = 1
+
+[node name="Card2" type="PanelContainer" parent="Hand"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+script = ExtResource("2_q51im")
+slot_type = 1
+
+[node name="Card3" type="PanelContainer" parent="Hand"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+script = ExtResource("2_q51im")
+slot_type = 1
+
+[node name="Card4" type="PanelContainer" parent="Hand"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+script = ExtResource("2_q51im")
+slot_type = 1
+
+[node name="Card5" type="PanelContainer" parent="Hand"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+script = ExtResource("2_q51im")
+slot_type = 1
+
+[node name="Card6" type="PanelContainer" parent="Hand"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+script = ExtResource("2_q51im")
+slot_type = 1
+
+[node name="Card7" type="PanelContainer" parent="Hand"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+script = ExtResource("2_q51im")
+slot_type = 1
+
+[node name="DiscardAndDraw" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="DiscardSlot" type="PanelContainer" parent="DiscardAndDraw"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+script = ExtResource("2_q51im")
+slot_type = 2
+
+[node name="DrawSlot" type="PanelContainer" parent="DiscardAndDraw"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+script = ExtResource("3_yrjlt")
+
+[node name="DiscardLabel" type="Label" parent="DiscardAndDraw"]
+layout_mode = 2
+text = "Discard"
+horizontal_alignment = 1
+
+[node name="DrawLabel" type="Label" parent="DiscardAndDraw"]
+layout_mode = 2
+text = "Draw"
+horizontal_alignment = 1

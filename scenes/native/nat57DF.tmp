@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://b7ffdif4qmwda"]
 
-[ext_resource type="Script" path="res://scripts/hand_slot.gd" id="1_ngg7k"]
-[ext_resource type="Script" path="res://scripts/discard_slot.gd" id="2_b7ovu"]
-[ext_resource type="Script" path="res://scripts/draw_slot.gd" id="2_xhush"]
-[ext_resource type="PackedScene" uid="uid://k27ud0jdkyg1" path="res://scenes/draggable_card.tscn" id="3_jb44p"]
+[ext_resource type="Script" path="res://scripts/native/hand_slot.gd" id="1_ngg7k"]
+[ext_resource type="Script" path="res://scripts/native/discard_slot.gd" id="2_b7ovu"]
+[ext_resource type="Script" path="res://scripts/native/draw_slot.gd" id="2_xhush"]
+[ext_resource type="PackedScene" uid="uid://k27ud0jdkyg1" path="res://scenes/native/draggable_card.tscn" id="3_jb44p"]
 
 [node name="NativeDragAndDrop" type="Control"]
 layout_mode = 3

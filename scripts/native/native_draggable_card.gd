@@ -1,14 +1,16 @@
-class_name DraggableCard extends Control
+class_name NativeDraggableCard extends Control
 
-enum CardRank { ACE, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING }
-enum CardSuit { HEART, SPADE, DIAMOND, CLUB }
+signal dragged_away(card: NativeDraggableCard)
 
-@export var card_source: DroppableSlot.CardSlotType = DroppableSlot.CardSlotType.DECK
-@export var card_rank: CardRank:
+enum NativeCardRank { ACE, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING }
+enum NativeCardSuit { HEART, SPADE, DIAMOND, CLUB }
+
+@export var card_source: NativeDroppableSlot.NativeCardSlotType = NativeDroppableSlot.NativeCardSlotType.DECK
+@export var card_rank: NativeCardRank:
 	set(value):
 		card_rank = value
 		update_card_value()
-@export var card_suit: CardSuit:
+@export var card_suit: NativeCardSuit:
 	set(value):
 		card_suit = value
 		update_card_value()
@@ -22,13 +24,13 @@ func get_preview() -> Control:
 		return card_face.duplicate()
 	return texture_rect.duplicate()
 
-func _get_drag_data(at_position: Vector2) -> Variant:
+func _get_drag_data(_at_position: Vector2) -> Variant:
 	set_drag_preview(get_preview())
 	return self
 
 func randomize() -> void:
-	card_rank = CardRank.values().pick_random()
-	card_suit = CardSuit.values().pick_random()
+	card_rank = NativeCardRank.values().pick_random()
+	card_suit = NativeCardSuit.values().pick_random()
 
 func toggle_flip(show_face: bool) -> void:
 	card_face.visible = show_face

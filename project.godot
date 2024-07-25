@@ -11,9 +11,18 @@ config_version=5
 [application]
 
 config/name="GodotDragAndDropDemo"
-run/main_scene="res://scenes/native_drag_and_drop.tscn"
+run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+ButtonEventBus="*res://scripts/button/button_event_bus.gd"
+FpsOverlay="*res://scenes/fps_overlay.tscn"
+
+[debug]
+
+gdscript/warnings/untyped_declaration=2
 
 [rendering]
 

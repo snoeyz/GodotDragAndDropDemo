@@ -1,23 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://k27ud0jdkyg1"]
+[gd_scene load_steps=4 format=3 uid="uid://bptm2y2jecass"]
 
-[ext_resource type="Texture2D" uid="uid://daqc64xx7nc2d" path="res://icon.svg" id="1_6n86r"]
-[ext_resource type="Script" path="res://scripts/draggable_card.gd" id="2_cnyuc"]
+[ext_resource type="Script" path="res://scripts/button/button_draggable_card.gd" id="1_8edhb"]
+[ext_resource type="Texture2D" uid="uid://daqc64xx7nc2d" path="res://icon.svg" id="2_vwqwh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1p3j5"]
 font_size = 32
 
 [node name="DraggableCard" type="Control"]
+z_index = 10
 layout_mode = 3
 anchors_preset = 0
 offset_right = 128.0
 offset_bottom = 128.0
-script = ExtResource("2_cnyuc")
+script = ExtResource("1_8edhb")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("1_6n86r")
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("2_vwqwh")
 
 [node name="CardFace" type="ColorRect" parent="."]
 visible = false
@@ -43,3 +44,15 @@ grow_vertical = 2
 text = "AC"
 label_settings = SubResource("LabelSettings_1p3j5")
 horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
