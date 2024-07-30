@@ -12,6 +12,15 @@ class_name ButtonMain extends Control
 
 @onready var slot_list: Array[ButtonDroppableSlot] = [card_1, card_2, card_3, card_4, card_5, card_6, card_7, discard_slot, draw_slot]
 
+func _init() -> void:
+	FpsOverlay.card_count = 0
+	FpsOverlay.show_control_type(FpsOverlay.CardControlType.BUTTON)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("ui_up"):
+		for _i in 100:
+			$DiscardAndDraw/DrawSlot.draw_card()
+
 func _ready() -> void:
 	ButtonEventBus.card_dropped.connect(_on_card_dropped)
 

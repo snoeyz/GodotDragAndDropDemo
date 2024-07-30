@@ -1,0 +1,91 @@
+[gd_scene load_steps=7 format=3 uid="uid://07b06d2wc0xo"]
+
+[ext_resource type="Script" path="res://scripts/mouse_events/mouse_events_draggable_card.gd" id="1_4uddc"]
+[ext_resource type="Texture2D" uid="uid://daqc64xx7nc2d" path="res://icon.svg" id="2_kw6jo"]
+[ext_resource type="Texture2D" uid="uid://xbyqmusu33oa" path="res://assets/Anglo-American_card_suits.svg" id="3_wo3ip"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ce5dp"]
+bg_color = Color(0.129412, 0.145098, 0.196078, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ets7i"]
+bg_color = Color(0.211765, 0.239216, 0.321569, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_1p3j5"]
+font_size = 32
+
+[node name="DraggableCard" type="Control"]
+z_index = 10
+layout_mode = 3
+anchors_preset = 0
+offset_right = 128.0
+offset_bottom = 128.0
+script = ExtResource("1_4uddc")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+mouse_filter = 2
+texture = ExtResource("2_kw6jo")
+
+[node name="CardFace" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ce5dp")
+
+[node name="Panel" type="Panel" parent="CardFace"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -60.0
+offset_right = 60.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ets7i")
+
+[node name="ValueLabel" type="Label" parent="CardFace"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -22.5
+offset_right = 20.5
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "AC"
+label_settings = SubResource("LabelSettings_1p3j5")
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="CardFace"]
+position = Vector2(24, 28)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("3_wo3ip")
+hframes = 2
+vframes = 2
+frame = 1
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

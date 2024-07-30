@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 ButtonEventBus="*res://scripts/button/button_event_bus.gd"
 FpsOverlay="*res://scenes/fps_overlay.tscn"
+MouseEventsEventBus="*res://scripts/mouse_events/mouse_events_event_bus.gd"
 
 [debug]
 

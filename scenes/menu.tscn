@@ -26,5 +26,10 @@ text = "Native Functionality"
 layout_mode = 2
 text = "Button-Based"
 
+[node name="MouseEventsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Mouse Events"
+
 [connection signal="pressed" from="VBoxContainer/NativeButton" to="." method="_on_native_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ButtonButton" to="." method="_on_button_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MouseEventsButton" to="." method="_on_mouse_events_button_pressed"]

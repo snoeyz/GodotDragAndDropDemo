@@ -20,6 +20,9 @@ enum NativeCardSuit { CLUB, DIAMOND, HEART, SPADE }
 @onready var value_label: Label = $CardFace/ValueLabel
 @onready var sprite_2d: Sprite2D = $CardFace/Sprite2D
 
+func _init() -> void:
+	FpsOverlay.card_count += 1
+
 func get_preview() -> Control:
 	if card_face.visible:
 		return card_face.duplicate()

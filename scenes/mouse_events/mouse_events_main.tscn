@@ -1,18 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7ffdif4qmwda"]
+[gd_scene load_steps=4 format=3 uid="uid://crinp2ili3cmr"]
 
-[ext_resource type="Script" path="res://scripts/native/native_main.gd" id="1_15dmi"]
-[ext_resource type="Script" path="res://scripts/native/native_hand_slot.gd" id="1_ngg7k"]
-[ext_resource type="Script" path="res://scripts/native/native_discard_slot.gd" id="2_b7ovu"]
-[ext_resource type="Script" path="res://scripts/native/native_draw_slot.gd" id="2_xhush"]
+[ext_resource type="Script" path="res://scripts/mouse_events/mouse_events_main.gd" id="1_ajev3"]
+[ext_resource type="Script" path="res://scripts/mouse_events/mouse_events_droppable_slot.gd" id="2_65t6q"]
+[ext_resource type="Script" path="res://scripts/mouse_events/mouse_events_draw_slot.gd" id="3_v36h1"]
 
-[node name="NativeDragAndDrop" type="Control"]
+[node name="MouseEventsMain" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_15dmi")
+script = ExtResource("1_ajev3")
 
 [node name="Hand" type="GridContainer" parent="."]
 layout_mode = 1
@@ -31,43 +30,43 @@ columns = 7
 [node name="Card1" type="PanelContainer" parent="Hand"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
-script = ExtResource("1_ngg7k")
+script = ExtResource("2_65t6q")
 slot_type = 1
 
 [node name="Card2" type="PanelContainer" parent="Hand"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
-script = ExtResource("1_ngg7k")
+script = ExtResource("2_65t6q")
 slot_type = 1
 
 [node name="Card3" type="PanelContainer" parent="Hand"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
-script = ExtResource("1_ngg7k")
+script = ExtResource("2_65t6q")
 slot_type = 1
 
 [node name="Card4" type="PanelContainer" parent="Hand"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
-script = ExtResource("1_ngg7k")
+script = ExtResource("2_65t6q")
 slot_type = 1
 
 [node name="Card5" type="PanelContainer" parent="Hand"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
-script = ExtResource("1_ngg7k")
+script = ExtResource("2_65t6q")
 slot_type = 1
 
 [node name="Card6" type="PanelContainer" parent="Hand"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
-script = ExtResource("1_ngg7k")
+script = ExtResource("2_65t6q")
 slot_type = 1
 
 [node name="Card7" type="PanelContainer" parent="Hand"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
-script = ExtResource("1_ngg7k")
+script = ExtResource("2_65t6q")
 slot_type = 1
 
 [node name="DiscardAndDraw" type="GridContainer" parent="."]
@@ -88,13 +87,13 @@ columns = 2
 [node name="DiscardSlot" type="PanelContainer" parent="DiscardAndDraw"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
-script = ExtResource("2_b7ovu")
+script = ExtResource("2_65t6q")
 slot_type = 2
 
 [node name="DrawSlot" type="PanelContainer" parent="DiscardAndDraw"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
-script = ExtResource("2_xhush")
+script = ExtResource("3_v36h1")
 
 [node name="DiscardLabel" type="Label" parent="DiscardAndDraw"]
 layout_mode = 2
