@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://k27ud0jdkyg1"]
+[gd_scene load_steps=7 format=3 uid="uid://k27ud0jdkyg1"]
 
 [ext_resource type="Script" path="res://scripts/native/native_draggable_card.gd" id="1_eps7u"]
 [ext_resource type="Texture2D" uid="uid://daqc64xx7nc2d" path="res://icon.svg" id="2_w6db3"]
+[ext_resource type="Texture2D" uid="uid://xbyqmusu33oa" path="res://assets/Anglo-American_card_suits.svg" id="3_xdk8n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_prud4"]
 bg_color = Color(0.129412, 0.145098, 0.196078, 1)
@@ -73,3 +74,10 @@ grow_vertical = 2
 text = "AC"
 label_settings = SubResource("LabelSettings_1dnvr")
 horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="CardFace"]
+position = Vector2(24, 28)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("3_xdk8n")
+hframes = 2
+vframes = 2

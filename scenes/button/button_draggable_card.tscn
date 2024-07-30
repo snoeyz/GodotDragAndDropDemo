@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bptm2y2jecass"]
+[gd_scene load_steps=7 format=3 uid="uid://bptm2y2jecass"]
 
 [ext_resource type="Script" path="res://scripts/button/button_draggable_card.gd" id="1_8edhb"]
 [ext_resource type="Texture2D" uid="uid://daqc64xx7nc2d" path="res://icon.svg" id="2_vwqwh"]
+[ext_resource type="Texture2D" uid="uid://xbyqmusu33oa" path="res://assets/Anglo-American_card_suits.svg" id="3_y1fmi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ce5dp"]
 bg_color = Color(0.129412, 0.145098, 0.196078, 1)
@@ -75,6 +76,14 @@ grow_vertical = 2
 text = "AC"
 label_settings = SubResource("LabelSettings_1p3j5")
 horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="CardFace"]
+position = Vector2(24, 28)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("3_y1fmi")
+hframes = 2
+vframes = 2
+frame = 1
 
 [node name="Button" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)

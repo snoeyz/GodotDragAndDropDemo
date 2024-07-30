@@ -24,6 +24,7 @@ var dragged_from_pos: Vector2
 @onready var texture_rect: TextureRect = $TextureRect
 @onready var card_face: Panel = $CardFace
 @onready var value_label: Label = $CardFace/ValueLabel
+@onready var sprite_2d: Sprite2D = $CardFace/Sprite2D
 
 func get_preview() -> Control:
 	if card_face.visible:
@@ -39,9 +40,11 @@ func toggle_flip(show_face: bool) -> void:
 
 func update_card_value() -> void:
 	var card_rank_value: String = ["A", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"][card_rank]
-	var card_suit_value: String = ["♥", "♦", "♠", "♣"][card_suit]
-	value_label.text = "%s%s" % [card_rank_value, card_suit_value]
-	value_label.modulate = Color.RED if card_suit < 2 else Color.BLACK
+	value_label.text = "%s" % card_rank_value
+	value_label.modulate = Color.RED if card_suit == 1 or card_suit == 2 else Color.BLACK
+	sprite_2d.frame = card_suit
+	# offset sprites due to extra border around image
+	sprite_2d.offset.y = -64 if card_suit < 2 else 0
 
 func _process(_delta: float) -> void:
 	if is_being_dragged:
