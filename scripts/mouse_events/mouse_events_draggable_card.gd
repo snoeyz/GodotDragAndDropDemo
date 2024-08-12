@@ -49,10 +49,6 @@ func update_card_value() -> void:
 	# offset sprites due to extra border around image
 	sprite_2d.offset.y = -64 if card_suit < 2 else 0
 
-func _process(_delta: float) -> void:
-	if is_being_dragged:
-		global_position = get_global_mouse_position() - mouse_offset
-
 func _on_mouse_button_down() -> void:
 	mouse_offset = get_local_mouse_position()
 	dragged_from_pos = global_position
@@ -105,3 +101,6 @@ func _on_gui_input(event: InputEvent) -> void:
 				_on_mouse_button_down()
 			else:
 				_on_mouse_button_up()
+	elif is_being_dragged and event is InputEventMouseMotion:
+		var mouse_event: InputEventMouseMotion = event as InputEventMouseMotion
+		global_position = get_global_mouse_position() - mouse_offset
