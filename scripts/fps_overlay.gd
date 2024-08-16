@@ -45,3 +45,7 @@ func show_control_type(control_type: CardControlType) -> void:
 			control_type_label.visible = true
 			control_type_label.text = "Native Drag and Drop"
 			
+
+
+func _on_main_menu_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")

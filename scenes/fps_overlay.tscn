@@ -53,4 +53,9 @@ layout_mode = 2
 toggle_mode = true
 text = "VSync On"
 
+[node name="MainMenuButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Main Menu"
+
 [connection signal="toggled" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ToggleVSyncButton" to="." method="toggle_vsync"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
